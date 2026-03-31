@@ -33,3 +33,14 @@ The `DATABASE_URL` environment variable is defined in `.env`. Always load it wit
 - `chinook.sql` — Full database dump (schema + seed data). Do not modify unless re-provisioning the database.
 - `DATABASE_SCHEMA.md` — Schema documentation with ERD, column types, and FK relationships.
 - `.env` — Contains `DATABASE_URL` (not committed to git).
+
+## Verificação Final via Browser (obrigatório)
+
+Sempre que fizer alterações em arquivos que afetam a interface web (HTML, CSS, JS, templates, dashboards, etc.), o **último passo do plano** deve ser verificar visualmente o resultado no browser usando as ferramentas do Chrome MCP (`mcp__claude-in-chrome__*`).
+
+**O que fazer:**
+1. Abra a página relevante no browser (navegue até a URL local ou recarregue a aba existente).
+2. Leia o conteúdo da página (`read_page` ou `get_page_text`) para confirmar que a alteração está refletida.
+3. Se houver erro visual ou funcional, corrija antes de considerar a tarefa concluída.
+
+**Quando pular:** Alterações puramente backend (queries SQL, scripts CLI, configurações sem UI) não precisam de verificação via browser.

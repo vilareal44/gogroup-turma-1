@@ -10,7 +10,9 @@
     "db:push": "turbo db:push",
     "db:studio": "turbo db:studio",
     "infra:start": "docker compose up -d",
-    "infra:stop": "docker compose down"
+    "infra:stop": "docker compose down",
+    "db:seed": "chmod +x scripts/db-seed.sh && ./scripts/db-seed.sh",
+    "db:reinit": "chmod +x scripts/db-reinit.sh && ./scripts/db-reinit.sh"
   },
   "devDependencies": {
     "turbo": "^2"

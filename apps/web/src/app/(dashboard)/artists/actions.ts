@@ -1,8 +1,8 @@
 "use server";
 
 import { db } from "@/lib/db";
-import { artist, album } from "@chinook/db/schema";
-import { eq, like, sql, asc, count } from "drizzle-orm";
+import { artist, album, track, invoiceLine, playlistTrack } from "@chinook/db/schema";
+import { eq, like, sql, asc, count, inArray } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
@@ -93,6 +93,14 @@ export async function updateArtist(formData: FormData) {
 }
 
 export async function deleteArtist(id: number) {
+  const albumIds = db.select({ id: album.albumId }).from(album).where(eq(album.artistId, id));
+  const trackIds = db.select({ id: track.trackId }).from(track).where(inArray(track.albumId, albumIds));
+
+  await Promise.all([
+    db.delete(invoiceLine).where(inArray(invoiceLine.trackId, trackIds)),
+    db.delete(playlistTrack).where(inArray(playlistTrack.trackId, trackIds)),
+  ]);
+  await db.delete(track).where(inArray(track.albumId, albumIds));
   await db.delete(album).where(eq(album.artistId, id));
   await db.delete(artist).where(eq(artist.artistId, id));
 

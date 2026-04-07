@@ -8,7 +8,9 @@
     "lint": "turbo lint",
     "db:generate": "turbo db:generate",
     "db:push": "turbo db:push",
-    "db:studio": "turbo db:studio"
+    "db:studio": "turbo db:studio",
+    "infra:start": "docker compose up -d",
+    "infra:stop": "docker compose down"
   },
   "devDependencies": {
     "turbo": "^2"

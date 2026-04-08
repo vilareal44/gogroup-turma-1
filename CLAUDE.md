@@ -44,3 +44,10 @@ Sempre que fizer alterações em arquivos que afetam a interface web (HTML, CSS,
 3. Se houver erro visual ou funcional, corrija antes de considerar a tarefa concluída.
 
 **Quando pular:** Alterações puramente backend (queries SQL, scripts CLI, configurações sem UI) não precisam de verificação via browser.
+
+## Active Technologies
+- TypeScript ^5 + Next.js ^15 (App Router), React ^19, Drizzle ORM ^0.45, shadcn/ui ^4 (base-nova), Tailwind CSS ^4, Recharts (a instalar), lucide-reac (002-analytics-dashboard)
+- PostgreSQL (Neon serverless remoto / Docker local) (002-analytics-dashboard)
+
+## Recent Changes
+- 002-analytics-dashboard: Added TypeScript ^5 + Next.js ^15 (App Router), React ^19, Drizzle ORM ^0.45, shadcn/ui ^4 (base-nova), Tailwind CSS ^4, Recharts (a instalar), lucide-reac
